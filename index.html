@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEN AI</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+.container{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+width:90%;
+max-width:400px;
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,255,255,0.2);
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#00ffff;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+background:#334155;
+color:white;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+background:#00ffff;
+color:black;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.8;
+}
+
+.link{
+text-align:center;
+margin-top:15px;
+cursor:pointer;
+color:#00ffff;
+}
+
+#dashboard{
+display:none;
+padding:20px;
+}
+
+.nav{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.box{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+text-align:center;
+cursor:pointer;
+}
+
+.chat-box{
+margin-top:20px;
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+height:300px;
+overflow-y:auto;
+}
+
+.message{
+padding:10px;
+margin:10px 0;
+border-radius:8px;
+}
+
+.user{
+background:#2563eb;
+}
+
+.ai{
+background:#16a34a;
+}
+
+.chat-input{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.chat-input input{
+flex:1;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="loginPage">
+<div class="card">
+
+<h1>🤖 ZEN AI</h1>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">LOGIN</button>
+
+<div class="link" onclick="register()">
+Register Account
+</div>
+
+</div>
+</div>
+
+<div id="dashboard">
+
+<h1>🤖 ZEN AI Dashboard</h1>
+
+<p>Welcome, <span id="userDisplay"></span></p>
+
+<div class="nav">
+
+<div class="box">💻 Script Generator</div>
+
+<div class="box">🎨 GUI Generator</div>
+
+<div class="box">🖼 Logo Generator</div>
+
+<div class="box">📷 Image Generator</div>
+
+<div class="box">📁 Projects</div>
+
+<div class="box">⚙ Settings</div>
+
+</div>
+
+<div class="chat-box" id="chatBox">
+<div class="message ai">
+Halo! Saya ZEN AI.
+</div>
+</div>
+
+<div class="chat-input">
+
+<input type="text"
+id="chatInput"
+placeholder="Ask ZEN AI...">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+</div>
+
+<script>
+
+function register(){
+
+let username =
+document.getElementById("username").value;
+
+let password =
+document.getElementById("password").value;
+
+if(username==="" || password===""){
+alert("Fill all fields");
+return;
+}
+
+localStorage.setItem("zenUser",username);
+localStorage.setItem("zenPass",password);
+
+alert("Account Created!");
+
+}
+
+function login(){
+
+let username =
+document.getElementById("username").value;
+
+let password =
+document.getElementById("password").value;
+
+let savedUser =
+localStorage.getItem("zenUser");
+
+let savedPass =
+localStorage.getItem("zenPass");
+
+if(username===savedUser &&
+password===savedPass){
+
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("dashboard")
+.style.display="block";
+
+document.getElementById("userDisplay")
+.innerText=username;
+
+}else{
+alert("Wrong Account");
+}
+
+}
+
+function sendMessage(){
+
+let input =
+document.getElementById("chatInput");
+
+let text=input.value;
+
+if(text==="") return;
+
+let chat =
+document.getElementById("chatBox");
+
+chat.innerHTML += `
+<div class="message user">
+${text}
+</div>
+`;
+
+setTimeout(()=>{
+
+chat.innerHTML += `
+<div class="message ai">
+ZEN AI Response:
+"${text}" received.
+</div>
+`;
+
+chat.scrollTop=
+chat.scrollHeight;
+
+},500);
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
