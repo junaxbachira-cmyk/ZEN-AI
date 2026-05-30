@@ -1,0 +1,258 @@
+/* =========================
+   ZEN AI STYLE
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #020617
+    );
+    color:white;
+    min-height:100vh;
+}
+
+/* LOGIN */
+
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    background:rgba(30,41,59,.9);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:
+    0 0 30px rgba(0,255,255,.15);
+}
+
+.card h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#00ffff;
+    font-size:32px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    margin:10px 0;
+    background:#334155;
+    color:white;
+    outline:none;
+}
+
+input:focus{
+    border:1px solid #00ffff;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    margin-top:10px;
+    cursor:pointer;
+    background:#00ffff;
+    color:black;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 15px cyan;
+}
+
+.link{
+    margin-top:15px;
+    text-align:center;
+    color:#00ffff;
+    cursor:pointer;
+}
+
+/* DASHBOARD */
+
+#dashboard{
+    display:none;
+    padding:20px;
+}
+
+.dashboard-header{
+    background:#1e293b;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.dashboard-header h1{
+    color:#00ffff;
+}
+
+.dashboard-header p{
+    margin-top:5px;
+    color:#cbd5e1;
+}
+
+.nav{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.box{
+    background:#1e293b;
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+    border:1px solid transparent;
+}
+
+.box:hover{
+    border-color:#00ffff;
+    transform:translateY(-5px);
+    box-shadow:0 0 15px rgba(0,255,255,.3);
+}
+
+.box h3{
+    margin-top:10px;
+}
+
+/* CHAT */
+
+.chat-box{
+    background:#1e293b;
+    border-radius:20px;
+    padding:15px;
+    height:450px;
+    overflow-y:auto;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.chat-box::-webkit-scrollbar{
+    width:5px;
+}
+
+.chat-box::-webkit-scrollbar-thumb{
+    background:#00ffff;
+    border-radius:10px;
+}
+
+.message{
+    padding:12px;
+    margin:10px 0;
+    border-radius:12px;
+    max-width:80%;
+    word-wrap:break-word;
+}
+
+.user{
+    background:#2563eb;
+    margin-left:auto;
+}
+
+.ai{
+    background:#16a34a;
+}
+
+.chat-input{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.chat-input input{
+    flex:1;
+}
+
+.chat-input button{
+    width:120px;
+}
+
+/* PROFILE */
+
+.profile-card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:16px;
+    margin-top:20px;
+}
+
+.profile-card img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+}
+
+/* GENERATOR CARDS */
+
+.generator{
+    background:#1e293b;
+    padding:20px;
+    border-radius:16px;
+    margin-top:20px;
+}
+
+.generator textarea{
+    width:100%;
+    height:150px;
+    resize:none;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#334155;
+    color:white;
+    margin-top:10px;
+}
+
+.generator button{
+    margin-top:15px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .chat-input{
+        flex-direction:column;
+    }
+
+    .chat-input button{
+        width:100%;
+    }
+
+    .nav{
+        grid-template-columns:1fr;
+    }
+
+  }
